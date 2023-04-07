@@ -7,7 +7,7 @@ public class TopMenuComponent {
     private final By LINK_ADMIN = By.xpath("//a[@href=\"/web/index.php/admin/viewAdminModule\"]");
 
     public void clickOnAdminLink(){
-        SeleniumUtils.click(LINK_ADMIN);
+        SeleniumUtils.click(LINK_ADMIN,"Admin Link");
     }
 
 }

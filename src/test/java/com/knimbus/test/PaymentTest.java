@@ -9,7 +9,7 @@ public class PaymentTest extends BaseTest {
     @Test
     public void test() {
         LoginPage loginPage = new LoginPage();
-        loginPage.doLogin("admin", "admin123");
+        loginPage.doLoginWithValidCredentials("admin", "admin123");
 
         Assert.assertEquals(DriverManager.getDriver().getTitle(), "OrangeHRM");
 

@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "getData")
     public void titleValidationTest(String username, String password, String expectedTitle) {
         LoginPage loginPage = new LoginPage();
-        String actualTitle = loginPage.doLogin(username, password).getHomePageTitle();
+        String actualTitle = loginPage.doLoginWithValidCredentials(username, password).getHomePageTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
