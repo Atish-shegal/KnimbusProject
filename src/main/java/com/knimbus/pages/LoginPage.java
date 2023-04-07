@@ -1,6 +1,6 @@
 package com.knimbus.pages;
 
-import com.knimbus.driver.DriverManager;
+import com.knimbus.utilis.SeleniumUtils;
 import org.openqa.selenium.By;
 
 public class LoginPage {
@@ -10,26 +10,23 @@ public class LoginPage {
     private static final By LOGIN_BTN = By.xpath("//button[@type='submit']");
 
     public LoginPage setUserName(String username) {
-        DriverManager.getDriver().findElement(TEXT_BOX_USER_NAME).sendKeys(username);
+        SeleniumUtils.sendKeys(TEXT_BOX_USER_NAME, username);
         return this;
     }
 
     public LoginPage setPassword(String password) {
-        DriverManager.getDriver().findElement(TEXT_BOX_PASSWORD).sendKeys(password);
+        SeleniumUtils.sendKeys(TEXT_BOX_PASSWORD, password);
         return this;
     }
 
     public HomePage clickLogin() {
-        DriverManager.getDriver().findElement(LOGIN_BTN).click();
+        SeleniumUtils.click(LOGIN_BTN);
         return new HomePage();
     }
 
 
     public HomePage doLogin(String username, String password) {
-        setUserName(username);
-        setPassword(password);
-        clickLogin();
-        return new HomePage();
+        return setUserName(username).setPassword(password).clickLogin();
 
     }
 
