@@ -1,23 +1,26 @@
 package com.knimbus.test;
 
-import com.knimbus.driver.Driver;
-import com.knimbus.driver.DriverManager;
-import org.openqa.selenium.By;
+import com.knimbus.pages.LoginPage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 
 public class LoginTest extends BaseTest {
 
-
-    @Test
-    public void titleValidationTest() {
-        DriverManager.getDriver().findElement(By.name("username")).sendKeys("Admin");
-        DriverManager.getDriver().findElement(By.name("password")).sendKeys("admin123");
-        DriverManager.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-
-        Assert.assertEquals(DriverManager.getDriver().getTitle(), "OrangeHRM");
-
+    @DataProvider
+    public static Object[][] getData() {
+        return new Object[][]{
+                {"Admin", "admin123", "OrangeHRM"}
+        };
     }
 
+    @Test(dataProvider = "getData")
+    public void titleValidationTest(String username, String password, String expectedTitle) {
+
+        LoginPage loginPage = new LoginPage();
+        String actualTitle = loginPage.doLogin(username, password).getHomePageTitle();
+        Assert.assertEquals(actualTitle, expectedTitle);
+    }
 
 }

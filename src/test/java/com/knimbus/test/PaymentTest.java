@@ -1,21 +1,17 @@
 package com.knimbus.test;
 
-import com.knimbus.driver.Driver;
 import com.knimbus.driver.DriverManager;
-import org.openqa.selenium.By;
+import com.knimbus.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PaymentTest extends BaseTest{
-
+public class PaymentTest extends BaseTest {
     @Test
     public void test() {
-        DriverManager.getDriver().findElement(By.name("username")).sendKeys("Admin");
-        DriverManager.getDriver().findElement(By.name("password")).sendKeys("admin123");
-        DriverManager.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+        LoginPage loginPage = new LoginPage();
+        loginPage.doLogin("admin", "admin123");
 
         Assert.assertEquals(DriverManager.getDriver().getTitle(), "OrangeHRM");
-
 
     }
 }
