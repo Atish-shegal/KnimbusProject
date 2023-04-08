@@ -12,11 +12,16 @@ public final class ExtentLogger {
 
     public static void fail(String message){
         // ExtentManager.getExtentTest().fail(message);
-        ExtentManager.getExtentTest().pass(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getScreenshot()).build());
+        ExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getScreenshot()).build());
     }
 
     public static void info(String message){
         // ExtentManager.getExtentTest().info(message);
-        ExtentManager.getExtentTest().pass(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getScreenshot()).build());
+        ExtentManager.getExtentTest().info(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getScreenshot()).build());
+    }
+
+    public static void skip(String message){
+         ExtentManager.getExtentTest().skip(message);
+        //ExtentManager.getExtentTest().skip(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getScreenshot()).build());
     }
 }

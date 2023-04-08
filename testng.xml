@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.knimbus.listeners.TestListeners"></listener>
+    </listeners>
     <test parallel="methods" thread-count="2" name="KnimbusWebAutomation">
           <classes>
             <class name="com.knimbus.test.LoginTest"/>
