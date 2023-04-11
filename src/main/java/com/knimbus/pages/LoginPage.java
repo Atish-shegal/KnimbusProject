@@ -2,8 +2,8 @@ package com.knimbus.pages;
 
 import org.openqa.selenium.By;
 
-import static com.knimbus.utilis.SeleniumUtils.click;
-import static com.knimbus.utilis.SeleniumUtils.sendKeys;
+import static com.knimbus.utils.SeleniumUtils.click;
+import static com.knimbus.utils.SeleniumUtils.sendKeys;
 
 public class LoginPage {
 

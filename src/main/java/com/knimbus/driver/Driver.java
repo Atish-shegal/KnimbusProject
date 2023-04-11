@@ -11,24 +11,25 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
-    public static WebDriver driver;
 
     public static void intDriver() {
         String browser = ConfigFactory.getConfig().browser();
         if (DriverManager.getDriver() == null) {
-            driver = DriverFactory.getDriver(browser);
+            System.out.println("1st " + DriverManager.getDriver());
+            WebDriver driver = DriverFactory.getDriver(browser);
             DriverManager.setDriver(driver);
+            System.out.println("2nd " + DriverManager.getDriver());
+            DriverManager.getDriver().manage().window().maximize();
+            DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigFactory.getConfig().timeouts()));
+            DriverManager.getDriver().get(ConfigFactory.getConfig().url());
         }
-
-        DriverManager.getDriver().manage().window().maximize();
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigFactory.getConfig().timeouts()));
-        DriverManager.getDriver().get(ConfigFactory.getConfig().url());
 
     }
 
     public static void quitDriver() {
-        if (DriverManager.getDriver() != null) {
+        if  (DriverManager.getDriver() != null) {
             DriverManager.getDriver().quit();
+            DriverManager.setDriver(null);
         }
     }
 

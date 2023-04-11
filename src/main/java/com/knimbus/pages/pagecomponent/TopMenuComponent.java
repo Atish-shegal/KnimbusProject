@@ -1,6 +1,6 @@
 package com.knimbus.pages.pagecomponent;
 
-import com.knimbus.utilis.SeleniumUtils;
+import com.knimbus.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 public class TopMenuComponent {

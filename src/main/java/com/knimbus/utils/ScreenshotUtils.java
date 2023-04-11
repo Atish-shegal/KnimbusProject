@@ -1,4 +1,4 @@
-package com.knimbus.utilis;
+package com.knimbus.utils;
 
 import com.knimbus.driver.DriverManager;
 import org.openqa.selenium.OutputType;
@@ -8,6 +8,7 @@ public final class ScreenshotUtils {
     private ScreenshotUtils(){}
 
     public static String getScreenshot(){
-      return  ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
+        //System.out.println(DriverManager.getDriver());
+      return  ((TakesScreenshot)DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
     }
 }

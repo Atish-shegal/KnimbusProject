@@ -6,9 +6,10 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.knimbus.constants.FrameworkConstants;
 
 public final class ExtentReport {
+    private ExtentReport(){}
     public static ExtentReports extent;
     public static ExtentTest extentTest;
-    private ExtentReport(){}
+
 
     public static void initReports(){
         extent = new ExtentReports();

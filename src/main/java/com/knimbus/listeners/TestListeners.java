@@ -16,28 +16,26 @@ public class TestListeners implements ITestListener {
         ExtentReport.assignAuthor(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotation.class).author());
     }
 
-        public void onTestSuccess(ITestResult result) {
-            ExtentLogger.pass(result.getName() + " is passed");
+    public void onTestSuccess(ITestResult result) {
+        ExtentLogger.pass(result.getName() + " is passed");
     }
 
 
-    public  void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getName() + " is failed");
+    public void onTestFailure(ITestResult result) {
+        ExtentLogger.info(result.getName() + " is failed");
         ExtentLogger.fail(result.getThrowable().getMessage());
-        ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        ExtentLogger.info(Arrays.toString(result.getThrowable().getStackTrace()));
 
     }
-
-
     public void onTestSkipped(ITestResult result) {
         ExtentLogger.info(result.getName() + " is skipped");
     }
 
-    public  void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         // not implemented
     }
 
-    public  void onTestFailedWithTimeout(ITestResult result) {
+    public void onTestFailedWithTimeout(ITestResult result) {
         onTestFailure(result);
     }
 

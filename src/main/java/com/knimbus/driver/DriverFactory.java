@@ -6,8 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class DriverFactory {
-    public static WebDriver getDriver(String browserName) {
+public final class DriverFactory {
+    private DriverFactory(){}
+        public static WebDriver getDriver(String browserName) {
         WebDriver driver;
 
         if (browserName.equalsIgnoreCase("Chrome")) {

@@ -1,4 +1,4 @@
-package com.knimbus.utilis;
+package com.knimbus.utils;
 
 import com.knimbus.config.ConfigFactory;
 import com.knimbus.driver.DriverManager;
